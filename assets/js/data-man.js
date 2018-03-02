@@ -43,11 +43,13 @@
             if (this.deleteCallBack) this.deleteCallBack(this.id);
         }
         this.send = function(e) {
+            // TODO
             console.log("send: ", e);
             e.preventDefault();
             if (this.sendCallBack) this.sendCallBack(this.id);
         }
         this.collaborate = function(e) {
+            // TODO
             console.log("collaborate: ", e);
             e.preventDefault();
             if (this.collaborateCallBack) this.collaborateCallBack(this.id);
@@ -59,6 +61,13 @@
 
         // ITEM SPECIFIC METHDOS
     
+        this.addItemToCollection = function(item, index) {
+            itemsIndexLookup[item.id] = index;
+            var itemObj = this.items[index] = itemsLookup[item.id] = new Item(item);
+            itemObj.deleteCallBack = this.deleteItem;
+            return itemObj;
+
+        }
         this.addItem = function(text, bought) {
             var item = { 
                     id: Math.round(Math.random() * 1000000000),
@@ -69,8 +78,7 @@
                 };
                 
             var index = this.items.length;
-            itemsIndexLookup[item.id] = index;
-            var itemObj = this.items[index] = itemsLookup[item.id] = new Item(item);
+            var itemObj = this.addItemToCollection(item, index);
 
             return itemObj;
         };
@@ -92,13 +100,12 @@
         }.bind(this);
 
         data.items.forEach(function(item, index) {
-            itemsIndexLookup[item.id] = index;
-            var itemObj =  data.items[index] = itemsLookup[item.id] = new Item(item);
-            itemObj.deleteCallBack = this.deleteItem;
+            this.addItemToCollection(item, index);
         }.bind(this));
 
         return this;
     };
+
     function Item(data) {
         var data = data;
         Object.assign(this, data);
@@ -113,27 +120,32 @@
         this.open = function(e) {
             e.preventDefault();
             if (this.openCallBack) this.openCallBack(this.id);
-        }
+        };
+
         this.edit = function(e) {
             e.preventDefault();
             if (this.editCallBack) this.editCallBack(this.id);
-        }
+        };
+
         this.delete = function(e) {
             e.preventDefault();
             if (this.deleteCallBack) this.deleteCallBack(this.id);
-        }
+        };
+
         this.toggleBought = function(e) {
             this.bought = e.target.checked;
-        }
+        };
+        
         this.assign = function(e) {
             var assignee = e.target.options[e.target.selectedIndex].value;
-            console.log("assignee: ", assignee);
             this.assignee = (assignee !== "") ? parseInt(assignee) : null;
-        }
+        };
+
         this.close = function(e) {
             e.preventDefault();
             if (this.closeCallBack) this.closeCallBack(this.id);
-        }
+        };
+
         return this;
     };
 
@@ -200,9 +212,7 @@
 
     // USER METHODS
     
-
     mod.getUsers = function() {
-        console.log("users: ", users);
         return users;
     };
 

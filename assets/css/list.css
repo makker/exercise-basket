@@ -6,19 +6,24 @@
     display: none;
 }
 #listsView .listItem .text {
-    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    width: calc(100% - 65px);
+    width: -webkit-calc(100% - 70px);
+    width: -moz-calc(100% - 70px);
+    width: calc(100% - 70px);
     padding-right: 0;
 }
 .listItem .assignee {
     float: right;
     font-size: 13px;
     color: white;
-    background-color: #ff6347;
-    border-radius: 50%;
-    padding: 5px;
+    background-color: #ffa190;
+    -webkit-border-radius: 15px;
+       -moz-border-radius: 15px;
+            border-radius: 15px;
+    padding: 7px;
 }
 .shoppingList .addFormLabel {
     display: block;
@@ -66,8 +71,15 @@
 .shoppingList input {
     font-size: 16px;
 }
+.shoppingList .formAddItem #text {
+    max-width: calc(100% - 120px);
+}
 .shoppingList .listfooter {
     background-color: #ffccc3;
+}
+.shoppingList .buttonCollaborate,
+.shoppingList .buttonSend {
+    display: none;
 }
 
 .shoppingList .textButton:hover {
@@ -91,6 +103,7 @@
     float: right;
     font-size: 16px;
     padding: 5px;
+    max-width: 30%;
 }
 #listView .listItem .assignee {
     display: none;
@@ -103,15 +116,22 @@
 /* Use a media query to add a breakpoint at 800px */
 @media (min-width: 768px) {
     #listsView .shoppingList {
+        max-width: -webkit-calc(50% - 24px);
+        max-width: -moz-calc(50% - 24px);
         max-width: calc(50% - 24px);
     }
     #listView {
         max-width: 666px;
     }
+    .listItem .selectAssignee {
+        width: auto;
+    }
 }
 
 @media (min-width: 1152px) {
     #listsView .shoppingList {
+        max-width: -webkit-calc(33% - 24px);
+        max-width: -moz-calc(33% - 24px);
         max-width: calc(33% - 24px);
     }
 }

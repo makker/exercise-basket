@@ -8,28 +8,36 @@
         if(root == undefined) root = document.body;
 
         var els = root.getElementsByClassName(className);
+
         if (els.length > 0) {
             var arr = [];
+
             for (var i = 0; i < els.length; i++) {
                 arr.push(els[i]);
             };
+
             return arr;
+
         } else {
             console.warn("Any element with class '"+ className +"' couldn't be found in", root);
         }
     };
+
     mod.getElByClass = function(className, root) {
         var el = mod.getElsByClass(className, root)[0];
         return el;
     };
+
     mod.setTextByClass = function(node, className, text) {
         var els = mod.getElsByClass(className, node);
+
         if (els) {
             els.forEach(function(el){
                 el.appendChild(document.createTextNode(text));
             });
         }
     };
+
     mod.getURLParams = function(type) {
         var paramStrings = window.location.search.substring(1).split('&');
 
@@ -47,9 +55,11 @@
         });
         return params;
     };
+
     mod.getURLParam = function(name) {
         return mod.getURLParams("lookup")[name];
     };
+
     mod.setURLParam = function(name, value) {
         var indexLookup = mod.getURLParams("indexLookup"),
             URLParamStrings = [];

@@ -20,9 +20,6 @@
 
 <body id="body">
   <div id="topbar" class="topbar">
-    <div id="buttonMenu" class="buttonMenu topbarItem">
-      [menu]
-    </div>
     <div id="pageTitle" class="topbarItem">
       Shopping list app
     </div>
@@ -31,9 +28,6 @@
     </div>
   </div>
   <div class="main">
-    <div id="menu" class="menu">
-
-    </div>
     <div class="viewWrapper">
       <div id="listsView" class="view">
         <div id="listsWrapper">
@@ -58,7 +52,7 @@
                       </svg>
                     </button>
                     <select id="selectAssignee" class="selectAssignee">
-                      <option value="" selected>Set assignee</option>
+                      <option value="" selected>Assignee</option>
                     </select>
                     <div class="assignee"></div>
                   </div>
@@ -74,7 +68,7 @@
                 <button class="buttonDelete textButton" />
                 <button class="buttonSend textButton" />
                 <button class="buttonCollaborate textButton" />
-                <div class="collaboratorList"></div>
+                <div class="collaboratorList"></div> 
                 <button class="buttonClose textButton" />
               </div>
             </div>
@@ -103,8 +97,8 @@
             <input type="input" id="description" ><br>
           </div>
         <div class="uiBoxFooter">
-          <button class="textButton modalButton buttonAdd buttonAddList"></button>
-          <button type="submit" class="textButton modalButton buttonCancel"></button>
+          <button type="submit" class="textButton modalButton buttonAdd buttonAddList"></button>
+          <button type="button" class="textButton modalButton buttonCancel"></button>
         </div>
         </form>
       </div>

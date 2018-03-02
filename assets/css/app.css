@@ -56,16 +56,13 @@ body, input, select {
 }
 .topbarItem {
     display: inline-block;
-    margin: 16px 10px;
+    margin: 16px 20px;
     color: white;
 }
-.buttonMenu {
-    margin-left: 10px;
-    cursor: pointer;
-    pointer-events: initial;
-}
 .buttonAddListDialog {
-    border-radius: 20px;
+    -webkit-border-radius: 20px;
+       -moz-border-radius: 20px;
+            border-radius: 20px;
     position: absolute;
     width: 20px;
     height: 20px;
@@ -92,23 +89,9 @@ body, input, select {
 .main {
     margin: 50px auto;
     width: 100%;
+    height: -webkit-calc(100% - 50px);
+    height: -moz-calc(100% - 50px);
     height: calc(100% - 50px);
-}
-
-/* MAIN MENU */
-#menu {
-    position: fixed;
-    float: left;
-    z-index: 5;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #e0dad8;
-    -webkit-box-shadow: 0 0 16px rgba(0,0,0,.28);
-    box-shadow: 0 0 16px rgba(0,0,0,.28);
-}
-.menuOpen #menu {
-    left: 0;
 }
 
 /* PAGE VIEWS */
@@ -120,7 +103,7 @@ body, input, select {
 }
 .view {
     margin: 0 auto;
-    max-width: 90%;
+    max-width: 100%;
     height: 100%;
     padding-top: 20px;
 }
@@ -131,10 +114,14 @@ body, input, select {
     display: inline-block;
     margin: 12px;
     min-width: 150px;
+    width: -webkit-calc(100% - 24px);
+    width: -moz-calc(100% - 24px);
     width: calc(100% - 24px);
     background-color: #fcfcfc;
     padding: 0;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
+       -moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
 }
 .uiBoxTitle {
     background-color: #b8b8b8;
@@ -159,7 +146,7 @@ body, input, select {
     margin-right: 10px;
 }
 .uiBoxFooter {
-    margin-top: 20px;
+    margin-top: 36px;
     bottom: 0;
     width: 100%;
     min-height: 26px;
@@ -171,7 +158,7 @@ body, input, select {
 
 .modalWrapper {
     display: none;
-    position: fixed;
+    position: absolute;
     top: 0;
     z-index: 200;
     width: 100%;
@@ -183,9 +170,7 @@ body.modalOpen .modalWrapper {
 }
 .modalContainer {
     margin: 80px auto 50px;
-    max-width: 80%;
-}
-.modal {
+    max-width: 100%;
 }
 .modalWrapper .modal {
     display: none;
@@ -194,11 +179,13 @@ body.modalOpen .modalWrapper {
     display: block;
 }
 
+/* Modal uiBox */
 .modal .uiBoxEl {
-    width: 70%;
+    width: 90%;
+    line-height: 40px;
 }
 .modal .uiBoxEl input {
-    width: 60%;
+    width: 50%;
 }
 .modal .uiBoxEl label {  
     min-width: 30%;
@@ -210,9 +197,8 @@ body.modalOpen .modalWrapper {
 
 /* Use a media query to add a breakpoint at 800px */
 @media (min-width: 768px) {
-    .menuOpen .viewWrapper {
-        margin-left: 250px;
-        width: calc(100% - 250px);
+    .view {
+        max-width: 90%;
     }
     .modalContainer {
         max-width: 666px;
@@ -220,12 +206,7 @@ body.modalOpen .modalWrapper {
 }
 
 @media (min-width: 1310px) {
-    body:not(.menuOpen) .view {
-        max-width: 1180px;
-    }
-}
-@media (min-width: 1560px) {
-    body.menuOpen .view {
+    .view {
         max-width: 1180px;
     }
 }
