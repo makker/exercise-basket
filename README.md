@@ -1,2 +1,2 @@
-# exercise-basket
-This is a grocery shopping list app
+# List Manager
+This is a online grocery shopping list manager

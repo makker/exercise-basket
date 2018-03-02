@@ -1,0 +1,11 @@
+
+body {
+    margin: 0;
+}
+
+/* Use this style to prevent highlighting on tap in android and possibly other browsers too */
+.no-select {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+

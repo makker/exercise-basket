@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Markus Ruottu">
+  <title>Title</title>
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="assets/css/list.css">
+  <script type="text/javascript" src="assets/js/common.js"></script>
+  <script type="text/javascript" src="assets/js/lang.js"></script>
+  <script type="text/javascript" src="assets/js/data.js"></script>
+  <script type="text/javascript" src="assets/js/app.js"></script>
+  <script type="text/javascript" src="assets/js/data-man.js"></script>
+  <script type="text/javascript" src="assets/js/view-man.js"></script>
+  <script type="text/javascript" src="assets/js/utils.js"></script>
+</head>
+
+<body id="body">
+  <div id="topbar" class="topbar">
+    <div id="buttonMenu" class="buttonMenu topbarItem">
+      [menu]
+    </div>
+    <div id="pageTitle" class="topbarItem">
+      Shopping list app
+    </div>
+    <div id="buttonAddListDialog" class="buttonAddListDialog no-select">
+      <div class="plusSpacer no-select">+</div>
+    </div>
+  </div>
+  <div class="main">
+    <div id="menu" class="menu">
+
+    </div>
+    <div class="viewWrapper">
+      <div id="listsView" class="view">
+        <div id="listsWrapper">
+          <!-- List template -->
+          <span id="listTemplate">
+            <div class="shoppingList uiBox">
+              <div class="listTitle uiBoxTitle">
+              </div>
+              <div class="listDescription uiBoxEl">
+              </div>
+              <div class="listItems uiBoxEl">
+                <!-- List item template -->
+                <span id="itemTemplate">
+                  <div class="listItem">
+                    <input id="bought" type="checkbox" class="checkboxBought" />
+                    <label for="bought" class="text"></label>
+                    <div class="comments"></div>
+                    <button class="buttonDel buttonIcon">
+                      <svg height="28" viewBox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" class="color" />
+                        <path d="M0 0h24v24H0z" fill="none"  />
+                      </svg>
+                    </button>
+                    <select id="selectAssignee" class="selectAssignee">
+                      <option value="" selected>Set assignee</option>
+                    </select>
+                    <div class="assignee"></div>
+                  </div>
+                </span>
+              </div>
+              <form id="formAddItem" class="formAddItem uiBoxEl">
+                  <input type="checkbox" id="bought" class="checkboxBought" />
+                  <input type="input" id="text" placeholder="New item">
+                  <button type="submit" class="commonButton buttonAdd buttonAddItem"></button>
+              </form>
+              <div class="listfooter uiBoxFooter">
+                <button class="buttonEdit textButton" />
+                <button class="buttonDelete textButton" />
+                <button class="buttonSend textButton" />
+                <button class="buttonCollaborate textButton" />
+                <div class="collaboratorList"></div>
+                <button class="buttonClose textButton" />
+              </div>
+            </div>
+          </span>
+
+        </div>
+      </div>
+      <div id="listView" class="view">
+          <div id="listWrapper" class="listWrapper"></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+  </div>
+  <div id="modalWrapper" class="modalWrapper">
+    <div id="modalContainer" class="modalContainer">
+      <div id="addList" class="modal uiBox">
+        <div class="modalTitle uiBoxTitle">
+          Add/edit list
+        </div>
+        <form id="formAddList">
+          <div class="uiBoxEl">
+            <label for="title">Title</label>
+            <input type="input" id="title" ><br>
+            <label for="description">Description</label>
+            <input type="input" id="description" ><br>
+          </div>
+        <div class="uiBoxFooter">
+          <button class="textButton modalButton buttonAdd buttonAddList"></button>
+          <button type="submit" class="textButton modalButton buttonCancel"></button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
